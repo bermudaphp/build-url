@@ -1,2 +1,4 @@
-# build-url
-url builder utils
+# Install
+```bash
+composer require bermudaphp/utils-url
+````
