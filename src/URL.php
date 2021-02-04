@@ -37,7 +37,7 @@ final class URL
 
         if (!empty($params['path']))
         {
-            $url .= '?' . http_build_query((array) $params['path']);
+            $url .= is_string($params['path']) ? $params['path'] : http_build_query((array) $params['path']);
         }
 
         elseif (!empty($_SERVER['QUERY_STRING']))
