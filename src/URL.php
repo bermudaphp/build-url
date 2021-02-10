@@ -8,6 +8,14 @@ namespace Bermuda\Utils;
  */
 final class URL
 {
+    public const schema = 'schema';
+    public const user = 'user';
+    public const pass = 'pass';
+    public const host = 'host';
+    public const port = 'port';
+    public const path = 'path';
+    public const anchor = 'anchor';
+    
     public function __construct()
     {
         throw new \RuntimeException(__CLASS__ . ' is not instantiable');
@@ -19,25 +27,25 @@ final class URL
      */
     public static function build(array $params = []): string
     {
-        $url = ($params['schema'] ?? self::schema()) . '://';
+        $url = ($params[self::schema] ?? self::schema()) . '://';
 
-        if (!empty($params['user']))
+        if (!empty($params[self::user]))
         {
-            $url .= $params['user'] . ':' . $params['pass'] . '@';
+            $url .= $params[self::user] . ':' . $params[self::pass] . '@';
         }
 
-        $url .= ($params['host'] ?? $_SERVER['HTTP_HOST']);
+        $url .= ($params[self::host] ?? $_SERVER['HTTP_HOST']);
 
-        if (!empty($params['port']))
+        if (!empty($params[self::port]))
         {
-            $url .= ':' . $params['port'];
+            $url .= ':' . $params[self::port];
         }
 
         $url .= '/';
 
-        if (!empty($params['path']))
+        if (!empty($params[self::path]))
         {
-            $url .= ltrim(is_string($params['path']) ? $params['path'] : http_build_query((array) $params['path']), '/');
+            $url .= ltrim(is_string($params[self::path]) ? $params[self::path] : http_build_query((array) $params[self::path]), '/');
         }
 
         elseif (!empty($_SERVER['QUERY_STRING']))
@@ -45,9 +53,9 @@ final class URL
             $url .= '?' . $_SERVER['QUERY_STRING'];
         }
 
-        if (!empty($params['anchor']))
+        if (!empty($params[self::anchor]))
         {
-            $url .= '#' . $params['anchor'];
+            $url .= '#' . $params[self::anchor];
         }
 
         return $url;
