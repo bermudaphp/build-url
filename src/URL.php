@@ -41,11 +41,10 @@ final class URL
             $url .= ':' . $params[self::port];
         }
 
-        $url .= '/';
-
         if (!empty($params[self::path]))
         {
-            $url .= ltrim(is_string($params[self::path]) ? $params[self::path] : http_build_query((array) $params[self::path]), '/');
+            $url .= '/';
+            $url .= trim(is_string($params[self::path]) ? $params[self::path] : http_build_query((array) $params[self::path]), '/');
         }
 
         elseif (!empty($_SERVER['QUERY_STRING']))
