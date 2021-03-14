@@ -1,12 +1,9 @@
 {
-    "name": "bermudaphp/utils-url",
+    "name": "bermudaphp/utils",
     "type": "library",
     "license": "MIT",
     "require": {
         "php": "^7.4"
-    },
-    "require-dev": {
-        "symfony/var-dumper": "^5.1"
     },
     "autoload": {
         "psr-4": {
