@@ -46,4 +46,16 @@ final class Header
     public const public             = 'Public';
     public const range              = 'Range';
     public const referer            = 'Referer';
+    public const retryAfter         = 'Retry-After';
+    public const server             = 'Server';
+    public const title              = 'Title';
+    public const TE                 = 'TE';
+    public const trailer            = 'Trailer';
+    public const transferEncoding   = 'Transfer-Encoding';
+    public const upgrade            = 'Upgrade';
+    public const userAgent          = 'User-Agent';
+    public const vary               = 'Vary';
+    public const via                = 'Via';
+    public const warning            = 'Warning';
+    public const wwwAuthenticate    = 'WWW-Authenticate';
 }
