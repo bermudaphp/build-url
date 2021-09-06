@@ -15,7 +15,9 @@ final class Header
     public const cacheControl       = 'Cache-Control';
     public const connection         = 'Connection';
     public const contentDisposition = 'Content-Disposition';
+    public const contentDescription = 'Content-Description';
     public const contentEncoding    = 'Content-Encoding';
+    public const contentTransferEncoding = 'Content-Transfer-Encoding';
     public const contentLanguage    = 'Content-Language';
     public const contentLength      = 'Content-Length';
     public const contentLocation    = 'Content-Location';
