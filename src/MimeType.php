@@ -10,7 +10,7 @@ final class MimeType
     public const png                = 'image/png';
     public const svg                = 'image/svg+xml';
     public const tiff               = 'image/tiff';
-    public const vnd_microsoft_icon = 'vnd.microsoft.icon';
+    public const vnd_microsoft_icon = 'image/vnd.microsoft.icon';
     public const vnd_wap_wbmp       = 'image/vnd.wap.wbmp';
     public const webp               = 'image/webp';
     
@@ -18,7 +18,7 @@ final class MimeType
     public const plain              = 'text/plain';
     public const css                = 'text/css';
     public const csv                = 'text/csv';
-    public const javaScript         = 'javascript';
+    public const javaScript         = 'text/javascript';
     public const php                = 'text/php';
     public const xml                = 'text/xml';
     public const markdown           = 'text/markdown';
@@ -30,4 +30,5 @@ final class MimeType
     public const EDIFACT            = 'application/EDIFACT';
     public const applicationJson    = 'application/json';
     public const applicationJavaScript = 'application/javascript';
+    public const octetStream        = 'application/octet-stream';
 }
