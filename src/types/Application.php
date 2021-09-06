@@ -1,6 +1,6 @@
 <?php
 
-namespace Bermuda\Utils;
+namespace Bermuda\Utils\Types;
 
 final class Application
 { 
