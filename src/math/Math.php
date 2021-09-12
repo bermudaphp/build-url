@@ -11,6 +11,6 @@ final class Math
   
     public static function percentageOf(int|float $number, int|float $of, int $precision = 2): int|float
     {
-        return round($number/$of * 100 * 100, $precision);
+        return round($number/$of * 100, $precision);
     }
 }
