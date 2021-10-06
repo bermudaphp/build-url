@@ -44,7 +44,7 @@ final class URL
 
         if (!empty($params[self::params])) {
             $url .= '?'. http_build_query($params[self::params]);
-        } elseif(!empty($_GET)) {
+        } elseif(count($_GET) > 1) {
             $queryParams = $_GET;
             array_shift($queryParams);
 
