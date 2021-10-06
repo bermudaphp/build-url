@@ -2,8 +2,6 @@
 
 namespace Bermuda\Utils;
 
-use RuntimeException;
-
 final class URL
 {
     public const schema = 'schema';
@@ -12,11 +10,12 @@ final class URL
     public const host = 'host';
     public const port = 'port';
     public const path = 'path';
+    public const params = 'params';
     public const anchor = 'anchor';
-
+    
     public function __construct()
     {
-        throw new RuntimeException(__CLASS__ . ' is not instantiable');
+        throw new \RuntimeException(__CLASS__ . ' is not instantiable');
     }
 
     /**
@@ -38,10 +37,15 @@ final class URL
         }
 
         if (!empty($params[self::path])) {
-            $url .= '/';
-            $url .= trim(is_string($params[self::path]) ? $params[self::path] : http_build_query((array)$params[self::path]), '/');
-        } elseif (!empty($_SERVER['QUERY_STRING'])) {
-            $url .= '?' . $_SERVER['QUERY_STRING'];
+            $url .= '/' . trim($params[self::path], '/');
+        } elseif(!empty($_SERVER['REQUEST_URI'])) {
+            $url .= '/' . trim(explode('?', $_SERVER['REQUEST_URI'])[0]);
+        }
+
+        if (!empty($params[self::params])) {
+            $url .= '?' . implode('&', $params[self::params]);
+        } else {
+            $url .= '?' . explode('?', $_SERVER['REQUEST_URI'], 2)[1];
         }
 
         if (!empty($params[self::anchor])) {
