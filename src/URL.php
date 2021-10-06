@@ -39,13 +39,16 @@ final class URL
         if (!empty($params[self::path])) {
             $url .= '/' . trim($params[self::path], '/');
         } elseif(!empty($_SERVER['REQUEST_URI'])) {
-            $url .= '/' . trim(explode('?', $_SERVER['REQUEST_URI'])[0]);
+            $url .= '/' . trim((explode('?', $_SERVER['REQUEST_URI']))[0], '/');
         }
 
         if (!empty($params[self::params])) {
-            $url .= '?' . implode('&', $params[self::params]);
-        } else {
-            $url .= '?' . explode('?', $_SERVER['REQUEST_URI'], 2)[1];
+            $url .= '?'. http_build_query($params[self::params]);
+        } elseif(!empty($_GET)) {
+            $queryParams = $_GET;
+            array_shift($queryParams);
+
+            $url .= '?'. http_build_query($queryParams);
         }
 
         if (!empty($params[self::anchor])) {
